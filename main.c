@@ -5,11 +5,12 @@
 int main() {
   srand(time(NULL));
   int arr[10], i;
-  for (i = 0; i < 9; i++) {
-    arr[i] = rand();
-  }
-  arr[9] = 0;
   for (i = 0; i < 10; i++) {
+    if (i == 9) {
+      arr[9] = 0;
+    } else {
+      arr[i] = rand();
+    }
     printf("Index: %d with num: %d\n", i, arr[i]);
   }
   int copy[10];
@@ -18,10 +19,9 @@ int main() {
   printf("Reverse Array\n");
   for (i = 0; i < 10; i++) {
     *cap = *arrp;
-    printf("index: %d with num: %d\n", i, *cap);
+    printf("Index: %d with num: %d\n", i, *cap);
     cap++;
     arrp--;
   }
-
   return 0;
 }
